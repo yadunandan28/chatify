@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/yadunandan28/chatify/issues"
   },
-  "homepage": "https://github.com/yadunandan28/chatify#readme"
+  "homepage": "https://github.com/yadunandan28/chatify#readme",
+  "dependencies": {
+    "resend": "^6.0.2"
+  }
 }

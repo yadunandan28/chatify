@@ -1,21 +1,21 @@
 import express from "express";
-import { signup, login,logout,updateProfile} from "../controllers/auth.controller.js";
+import { signup, login, logout, updateProfile } from "../controllers/auth.controller.js";
 import { protectRoute } from "../middleware/auth.middleware.js";
-import { arcjetProtection } from "../middleware/arcjet.middleware.js";
+// import { arcjetProtection } from "../middleware/arcjet.middleware.js";
 
-const router=express.Router();
+const router = express.Router();
 
-router.use(arcjetProtection);
-router.post('/signup', signup);
-router.post('/login',protectRoute, login);
+// ❌ DO NOT protect login/signup
+router.post("/signup", signup);
+router.post("/login", login);
 
-router.post('/logout', logout);
-
-router.put('/update-profile',protectRoute, updateProfile);
-
-router.get('/check', protectRoute, (req, res) => res.status(200).json(req.user));
+// ✅ protect routes that REQUIRE login
+router.post("/logout", protectRoute, logout);
+router.put("/update-profile", protectRoute, updateProfile);
+router.get("/check", protectRoute, (req, res) => res.status(200).json(req.user));
 
 export default router;
+
 
 //protectRoute vanthu oru middleware . ithu user authenticate aagalana atha block panni login page ku redirect pannum.
 //user requests with jwt token cookie vechitu anupum bodhu atha verify pannum.

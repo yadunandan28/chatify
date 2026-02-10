@@ -25,86 +25,85 @@ A full-stack real-time chat application built using the MERN stack, featuring se
 
 🧑‍💻 Clean Git & GitHub workflow
 
-🚀 Free-tier friendly deployment setup
 
-🛠️ Tech Stack
-Frontend
+Project Structure
+🔹 Backend (/backend)
 
-React
+Handles authentication, APIs, real-time messaging, emails, and database logic.
 
-Tailwind CSS
+src/controllers/
+Request handlers and core business logic
 
-DaisyUI
+src/emails/
+Email templates and Resend email logic
 
-Zustand
+src/lib/
+Database connection, Socket.io setup, and utility functions
 
-Socket.io Client
+src/middleware/
+Authentication, rate-limiting (Arcjet), and custom middleware
 
-Axios
+src/models/
+Mongoose schemas and data models
 
-Vite
+src/routes/
+REST API route definitions
 
-Backend
+src/server.js
+Express server and Socket.io entry point
 
-Node.js
+.env.example
+Environment variables template
 
-Express.js
+package.json / package-lock.json
+Backend dependencies and scripts
 
-Socket.io
+🔹 Frontend (/frontend)
 
-MongoDB & Mongoose
+Responsible for UI, state management, and real-time interaction.
 
-JWT Authentication
+public/
+Static assets
 
-Arcjet (Rate Limiting)
+src/components/
+Reusable UI components
 
-Cloudinary
+src/hooks/
+Custom React hooks
 
-Resend (Emails)
+src/lib/
+API helpers and utility functions
 
-Deployment & Tools
+src/pages/
+Page-level components
 
-MongoDB Atlas
+src/store/
+Global state management using Zustand
 
-Render
+src/App.jsx
+Root React component
 
-Git & GitHub
+src/main.jsx
+Application entry point
 
-📂 Project Structure
-chat-app/
-├── backend/
-│   ├── src/
-│   │   ├── controllers/      # Request handlers & business logic
-│   │   ├── emails/           # Email templates & Resend logic
-│   │   ├── lib/              # DB, socket & utility configs
-│   │   ├── middleware/       # Auth, rate-limit, and custom middleware
-│   │   ├── models/           # Mongoose schemas
-│   │   ├── routes/           # REST API routes
-│   │   └── server.js         # Express & Socket.io server entry point
-│   │
-│   ├── .env.example          # Environment variables template
-│   ├── package.json
-│   └── package-lock.json
-│
-├── frontend/
-│   ├── public/               # Static assets
-│   ├── src/
-│   │   ├── components/       # Reusable UI components
-│   │   ├── hooks/            # Custom React hooks
-│   │   ├── lib/              # API helpers & utilities
-│   │   ├── pages/            # Page-level components
-│   │   ├── store/            # Zustand global state
-│   │   ├── App.jsx           # Root React component
-│   │   ├── main.jsx          # Application entry point
-│   │   └── index.css         # Global styles
-│   │
-│   ├── index.html
-│   ├── eslint.config.js
-│   ├── README.md
-│   └── .gitignore
-│
-├── README.md                 # Root project documentation
-└── .gitignore
+src/index.css
+Global styles
+
+index.html
+HTML entry file
+
+eslint.config.js
+ESLint configuration
+
+README.md
+Frontend documentation
+
+🔹 Root
+
+README.md – Main project documentation
+
+.gitignore – Git ignored files
+
 
 
 ⚙️ Setup & Installation

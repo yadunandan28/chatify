@@ -72,39 +72,40 @@ Git & GitHub
 
 📂 Project Structure
 chat-app/
-│
 ├── backend/
 │   ├── src/
-│   │   ├── controllers/
-│   │   ├── emails/
-│   │   ├── lib/
-│   │   ├── middleware/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   └── server.js
+│   │   ├── controllers/      # Request handlers & business logic
+│   │   ├── emails/           # Email templates & Resend logic
+│   │   ├── lib/              # DB, socket & utility configs
+│   │   ├── middleware/       # Auth, rate-limit, and custom middleware
+│   │   ├── models/           # Mongoose schemas
+│   │   ├── routes/           # REST API routes
+│   │   └── server.js         # Express & Socket.io server entry point
 │   │
-│   ├── .env.example
+│   ├── .env.example          # Environment variables template
 │   ├── package.json
 │   └── package-lock.json
 │
 ├── frontend/
-│   ├── public/
+│   ├── public/               # Static assets
 │   ├── src/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── lib/
-│   │   ├── pages/
-│   │   ├── store/
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
+│   │   ├── components/       # Reusable UI components
+│   │   ├── hooks/            # Custom React hooks
+│   │   ├── lib/              # API helpers & utilities
+│   │   ├── pages/            # Page-level components
+│   │   ├── store/            # Zustand global state
+│   │   ├── App.jsx           # Root React component
+│   │   ├── main.jsx          # Application entry point
+│   │   └── index.css         # Global styles
 │   │
 │   ├── index.html
 │   ├── eslint.config.js
 │   ├── README.md
 │   └── .gitignore
 │
-└── README.md
+├── README.md                 # Root project documentation
+└── .gitignore
+
 
 ⚙️ Setup & Installation
 Prerequisites

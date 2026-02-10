@@ -117,9 +117,7 @@ Cloudinary Account
 
 Resend Account
 
-1️⃣ Clone the Repository
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+
 
 2️⃣ Backend Setup
 cd backend
@@ -133,9 +131,6 @@ Run the backend server:
 npm run dev
 
 
-Backend runs on:
-
-http://localhost:5000
 
 3️⃣ Frontend Setup
 cd frontend
@@ -143,9 +138,7 @@ npm install
 npm run dev
 
 
-Frontend runs on:
 
-http://localhost:5173
 
 🔑 Environment Variables
 

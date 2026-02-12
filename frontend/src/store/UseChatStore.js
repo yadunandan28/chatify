@@ -3,6 +3,10 @@ import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
 import { useAuthStore } from "./UseAuthStore";
 
+const notificationSound = new Audio("/sounds/notification.mp3");
+notificationSound.preload = "auto";
+notificationSound.volume = 1;
+
 
 export const useChatStore = create((set, get) => ({
   allContacts: [],
@@ -82,5 +86,28 @@ export const useChatStore = create((set, get) => ({
       set({messages:messages});
       toast.error(error.response.data.message);
     }
+  },
+
+  subscribeToMessages: () => {
+
+    const {selectedUser,isSoundEnabled} = get();
+    if(!selectedUser) return;
+    const socket = useAuthStore.getState().socket;
+
+    socket.on("newMessage", (newMessage) => {
+      const isMessageSelecedFromCurrentUser = newMessage.senderId === selectedUser._id;
+      if(!isMessageSelecedFromCurrentUser) return;
+      const currentmessages = get().messages;
+      set({ messages: currentmessages.concat(newMessage) });
+      if(isSoundEnabled){
+        notificationSound.currentTime = 0; // Reset sound to start
+        notificationSound.play().catch((e => console.log("Error playing notification sound:", e)));
+      }
+    });
+  },
+
+  unsubscribeFromMessages: () => {
+    const socket = useAuthStore.getState().socket;
+    socket.off("newMessage");
   }
 }));
